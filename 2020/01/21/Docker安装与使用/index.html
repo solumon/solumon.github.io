@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Docker安装与使用 | 骷髅精灵 | 约束自己一周一篇学习博客，学无止境！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Docker是什么？ Docker是一个开源的容器引擎，它有助于更快地交付应用。Docker可将应用程序和基础设施层隔离，并且能将基础设施当作程序一样进行管理。使用Docker可更快地打包、测试以及部署应用程序，并可以缩短从编写到部署运&gt; 行代码的周期。  Docker有什么用？ Docker 可以简化部署多种应用实例工作。  安装Docker 环境：CentOS 7  1234567# 如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker安装与使用">
+<meta property="og:url" content="https://github.com/solumon/2020/01/21/Docker%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="骷髅精灵">
+<meta property="og:description" content="Docker是什么？ Docker是一个开源的容器引擎，它有助于更快地交付应用。Docker可将应用程序和基础设施层隔离，并且能将基础设施当作程序一样进行管理。使用Docker可更快地打包、测试以及部署应用程序，并可以缩短从编写到部署运&gt; 行代码的周期。  Docker有什么用？ Docker 可以简化部署多种应用实例工作。  安装Docker 环境：CentOS 7  1234567# 如">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/12/10/16eed747d71c7fa8?w=880&h=104&f=png&s=29664">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/12/10/16eee7c6adc1455b?w=1964&h=1386&f=png&s=430469">
+<meta property="article:published_time" content="2020-01-21T01:09:03.000Z">
+<meta property="article:modified_time" content="2020-01-21T01:10:43.894Z">
+<meta property="article:author" content="骷髅精灵">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/12/10/16eed747d71c7fa8?w=880&h=104&f=png&s=29664">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">骷髅精灵</h5>
+          <a href="mailto:solumon@sina.com" title="solumon@sina.com" class="mail">solumon@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Docker安装与使用</div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Docker安装与使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-21T01:09:03.000Z" itemprop="datePublished" class="page-time">
+  2020-01-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Docker是什么？"><span class="post-toc-text">Docker是什么？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Docker有什么用？"><span class="post-toc-text">Docker有什么用？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装Docker"><span class="post-toc-text">安装Docker</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#启动并加入开机启动项"><span class="post-toc-text">启动并加入开机启动项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#删除Docker"><span class="post-toc-text">删除Docker</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#国内源配置"><span class="post-toc-text">国内源配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Docker中基本概念"><span class="post-toc-text">Docker中基本概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#仓库-Repository"><span class="post-toc-text">仓库(Repository):</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#镜像-Image"><span class="post-toc-text">镜像(Image):</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#镜像操作"><span class="post-toc-text">镜像操作</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#容器-Container"><span class="post-toc-text">容器(Container):</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#容器操作"><span class="post-toc-text">容器操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#容器运行"><span class="post-toc-text">容器运行</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#容器修改"><span class="post-toc-text">容器修改</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Docker-安装-Mysql"><span class="post-toc-text">Docker 安装 Mysql</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#搜索mysql镜像"><span class="post-toc-text">搜索mysql镜像</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#拉取mysql镜像"><span class="post-toc-text">拉取mysql镜像</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建挂载目录"><span class="post-toc-text">创建挂载目录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#运行mysql镜像"><span class="post-toc-text">运行mysql镜像</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mysql配置"><span class="post-toc-text">mysql配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进入容器"><span class="post-toc-text">进入容器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置数据库"><span class="post-toc-text">配置数据库</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Docker运行elasticsearch和kibana"><span class="post-toc-text">Docker运行elasticsearch和kibana</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#拉取镜像"><span class="post-toc-text">拉取镜像</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在容器中运行"><span class="post-toc-text">在容器中运行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试访问"><span class="post-toc-text">测试访问</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Docker拉取运行nacos-server"><span class="post-toc-text">Docker拉取运行nacos-server</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#拉取镜像-1"><span class="post-toc-text">拉取镜像</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在容器中运行-1"><span class="post-toc-text">在容器中运行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试可用性"><span class="post-toc-text">测试可用性</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考资料"><span class="post-toc-text">参考资料</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Centos7上安装docker"><span class="post-toc-text">Centos7上安装docker</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker中文网"><span class="post-toc-text">Docker中文网</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Docker安装与使用"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Docker安装与使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-21 09:09:03" datetime="2020-01-21T01:09:03.000Z"  itemprop="datePublished">2020-01-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Docker是什么？"><a href="#Docker是什么？" class="headerlink" title="Docker是什么？"></a>Docker是什么？</h1><blockquote>
+<p>Docker是一个开源的容器引擎，它有助于更快地交付应用。<br>Docker可将应用程序和基础设施层隔离，并且能将基础设施当作程序一样进行管理。<br>使用Docker可更快地打包、测试以及部署应用程序，并可以缩短从编写到部署运&gt; 行代码的周期。</p>
+</blockquote>
+<h1 id="Docker有什么用？"><a href="#Docker有什么用？" class="headerlink" title="Docker有什么用？"></a>Docker有什么用？</h1><blockquote>
+<p>Docker 可以简化部署多种应用实例工作。</p>
+</blockquote>
+<h1 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h1><blockquote>
+<p>环境：CentOS 7</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 如果安装有老版本卸载命令</span><br><span class="line">yum remove docker docker-common docker-selinux docker-engine</span><br><span class="line"># 安装依赖</span><br><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line">#  设置yum源  </span><br><span class="line">sudo yum-config-manager --add-repo   https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo</span><br><span class="line">sudo yum install docker-ce</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h2 id="启动并加入开机启动项"><a href="#启动并加入开机启动项" class="headerlink" title="启动并加入开机启动项"></a>启动并加入开机启动项</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 启动</span><br><span class="line">sudo systemctl start docker</span><br><span class="line">#开启开机自启</span><br><span class="line">sudo systemctl enable docker</span><br><span class="line"></span><br><span class="line">sudo systemctl status docker</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line">sudo systemctl stop docker</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="删除Docker"><a href="#删除Docker" class="headerlink" title="删除Docker"></a>删除Docker</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum remove docker docker-common docker-selinux docker-engine  -y</span><br><span class="line">&#x2F;etc&#x2F;systemd -name &#39;*docker*&#39; -exec rm -f &#123;&#125; ;</span><br><span class="line">find &#x2F;etc&#x2F;systemd -name &#39;*docker*&#39; -exec rm -f &#123;&#125; \;</span><br><span class="line">find &#x2F;lib&#x2F;systemd -name &#39;*docker*&#39; -exec rm -f &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+<h1 id="国内源配置"><a href="#国内源配置" class="headerlink" title="国内源配置"></a>国内源配置</h1><ul>
+<li><a href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors" target="_blank" rel="noopener">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="Docker中基本概念"><a href="#Docker中基本概念" class="headerlink" title="Docker中基本概念"></a>Docker中基本概念</h1><ul>
+<li><h2 id="仓库-Repository"><a href="#仓库-Repository" class="headerlink" title="仓库(Repository):"></a>仓库(Repository):</h2></li>
+<li><h2 id="镜像-Image"><a href="#镜像-Image" class="headerlink" title="镜像(Image):"></a>镜像(Image):</h2><ul>
+<li><h3 id="镜像操作"><a href="#镜像操作" class="headerlink" title="镜像操作"></a>镜像操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#查看已经下载的镜像</span><br><span class="line"> docker  images </span><br><span class="line"> #查询镜像</span><br><span class="line"> docker search [镜像名称]</span><br><span class="line">#拉取下载镜像</span><br><span class="line"> docker pull  [镜像名称]</span><br><span class="line">#删除镜像</span><br><span class="line">docker rmi  [镜像ID]</span><br><span class="line">#删除所有镜像 ， 注：docker images -q 查询到所有的镜像ID </span><br><span class="line">docekr rmi &#96;docker images -q&#96;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><h2 id="容器-Container"><a href="#容器-Container" class="headerlink" title="容器(Container):"></a>容器(Container):</h2><ul>
+<li><h3 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#查看容器   注：a all  所有的容器  l  last  最后一次运行的容器  </span><br><span class="line">#不加任何命令默认查看运行中的容器</span><br><span class="line">docker  ps  [-a   |   -l] </span><br><span class="line">#创建交互式(前台运行)容器</span><br><span class="line">docker run -i -t --name&#x3D;[自定义名称] [REPOSITORY]:[TAG]</span><br><span class="line"></span><br><span class="line">#开启容器</span><br><span class="line">docker start [NAMES]</span><br><span class="line">#关闭容器</span><br><span class="line">docker stop [NAMES]</span><br><span class="line"># 关闭所有容器</span><br><span class="line">docker stop $(docker ls -a -q)</span><br><span class="line"># 删除容器</span><br><span class="line">docker rm [CONTAINER ID]</span><br><span class="line"># 删除所有容器</span><br><span class="line">docker rm $(docker ls -a -q)</span><br></pre></td></tr></table></figure></li>
+<li><h3 id="容器运行"><a href="#容器运行" class="headerlink" title="容器运行"></a>容器运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#创建守护式(后台运行)容器</span><br><span class="line">docker run -i -d --name&#x3D;[自定义名称] [REPOSITORY]:[TAG]</span><br><span class="line"></span><br><span class="line">#通过守护式容器进入交互</span><br><span class="line">docker exec -it [自定义的名称]  &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2019/12/10/16eed747d71c7fa8?w=880&h=104&f=png&s=29664" alt="image.png"></p>
+</li>
+<li><h3 id="容器修改"><a href="#容器修改" class="headerlink" title="容器修改"></a>容器修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit  c8fab84eb9c8  learn&#x2F;ping</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>c8fab84eb9c8:前一步查询到的ID<br>learn/ping:  用户名/镜像名</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Docker-安装-Mysql"><a href="#Docker-安装-Mysql" class="headerlink" title="Docker 安装 Mysql"></a>Docker 安装 Mysql</h1><ul>
+<li><h2 id="搜索mysql镜像"><a href="#搜索mysql镜像" class="headerlink" title="搜索mysql镜像"></a>搜索mysql镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search mysql</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="拉取mysql镜像"><a href="#拉取mysql镜像" class="headerlink" title="拉取mysql镜像"></a>拉取mysql镜像</h2><blockquote>
+<p>下载镜像（如上一步，可以指定想要的版本，不指定则为最新版）</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="创建挂载目录"><a href="#创建挂载目录" class="headerlink" title="创建挂载目录"></a>创建挂载目录</h2><blockquote>
+<p>在主机上创建目录，进入该目录,<br>例如在/usr/local下创建docker_mysql</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--数据挂载存储目录--&gt;</span><br><span class="line">mkdir -p &#x2F;usr&#x2F;local&#x2F;docker_mysql&#x2F;data</span><br><span class="line">&lt;!--日志挂载存储目录--&gt;</span><br><span class="line">mkdir -p &#x2F;usr&#x2F;local&#x2F;docker_mysql&#x2F;logs</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="运行mysql镜像"><a href="#运行mysql镜像" class="headerlink" title="运行mysql镜像"></a>运行mysql镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name mymysql -v &#x2F;usr&#x2F;local&#x2F;docker_mysql&#x2F;logs:&#x2F;logs -v &#x2F;usr&#x2F;local&#x2F;docker_mysql&#x2F;data:&#x2F;var&#x2F;lib&#x2F;mysql -e MYSQL_ROOT_PASSWORD&#x3D;123456 -d mysql</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>-p 3306:3306：将容器的 3306 端口映射到主机的 3306 端口。</li>
+<li>-v /usr/local/docker_mysql/logs:/logs：将主机 /usr/local/docker_mysql/logs目录挂载到容器的 /logs。</li>
+<li>-v /usr/local/docker_mysql/data:/var/lib/mysql ：将主机 /usr/local/docker_mysql/data目录挂载到容器的 /var/lib/mysql 。</li>
+<li>-e MYSQL_ROOT_PASSWORD=12345678：初始化 root 用户的密码。</li>
+</ul>
+</blockquote>
+</li>
+<li><h2 id="mysql配置"><a href="#mysql配置" class="headerlink" title="mysql配置"></a>mysql配置</h2><ul>
+<li><h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--62349aa31687 为容器ID 根据 docker ps 查询到--&gt;</span><br><span class="line">docker exec -it 62349aa31687 &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure></li>
+<li><h3 id="配置数据库"><a href="#配置数据库" class="headerlink" title="配置数据库"></a>配置数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--链接数据库 输入刚刚给出的初始密码--&gt;</span><br><span class="line">mysql -uroot -p</span><br><span class="line">&lt;!--授权--&gt;</span><br><span class="line">mysql&gt; GRANT ALL ON *.* TO &#39;root&#39;@&#39;%&#39;;</span><br><span class="line">&lt;!--刷新权限--&gt;</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line">&lt;!--更新加密规则--&gt;</span><br><span class="line">mysql&gt; ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39; PASSWORD EXPIRE NEVER;</span><br><span class="line">&lt;!--更新root用户密码--&gt;</span><br><span class="line">mysql&gt; ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;12345678&#39;;</span><br><span class="line">&lt;!--刷新权限--&gt;</span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
+<h1 id="Docker运行elasticsearch和kibana"><a href="#Docker运行elasticsearch和kibana" class="headerlink" title="Docker运行elasticsearch和kibana"></a>Docker运行elasticsearch和kibana</h1></li>
+</ul>
+</li>
+<li><h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull elasticsearch:6.8.5</span><br><span class="line">docker pull mobz&#x2F;elasticsearch-head:5-alpine</span><br><span class="line">docker pull kibana:6.8.5</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="在容器中运行"><a href="#在容器中运行" class="headerlink" title="在容器中运行"></a>在容器中运行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --name elasticsearch -d -p 9200:9200 -p 9300:9300 -p 5601:5601 elasticsearch:6.8.5</span><br><span class="line">docker run -it -d -e ELASTICSEARCH_URL&#x3D;http:&#x2F;&#x2F;127.0.0.1:9200 --name kibana --network&#x3D;container:elasticsearch kibana:6.8.5</span><br><span class="line">docker run -it --name elasticsearch-head -d -p 9100:9100 docker.io&#x2F;mobz&#x2F;elasticsearch-head:5-alpine</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="测试访问"><a href="#测试访问" class="headerlink" title="测试访问"></a>测试访问</h2><blockquote>
+<p><a href="http://localhost:5601" target="_blank" rel="noopener">http://localhost:5601</a><br>看到如下页面说明环境搭建完成</p>
+</blockquote>
+</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2019/12/10/16eee7c6adc1455b?w=1964&h=1386&f=png&s=430469" alt="kibala管理页面" title="">
+                </div>
+                <div class="image-caption">kibala管理页面</div>
+            </figure>
+
+<h1 id="Docker拉取运行nacos-server"><a href="#Docker拉取运行nacos-server" class="headerlink" title="Docker拉取运行nacos-server"></a>Docker拉取运行nacos-server</h1><ul>
+<li><h2 id="拉取镜像-1"><a href="#拉取镜像-1" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull nacos&#x2F;nacos-server</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="在容器中运行-1"><a href="#在容器中运行-1" class="headerlink" title="在容器中运行"></a>在容器中运行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --env MODE&#x3D;standalone --name nacos -d -p 8848:8848 nacos&#x2F;nacos-server</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="测试可用性"><a href="#测试可用性" class="headerlink" title="测试可用性"></a>测试可用性</h2><blockquote>
+<p>访问 http://[你的IP]/nacos/index.html<br>初始账户密码均为 nacos</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><h3 id="Centos7上安装docker"><a href="#Centos7上安装docker" class="headerlink" title="Centos7上安装docker"></a><a href="https://www.cnblogs.com/yufeng218/p/8370670.html" target="_blank" rel="noopener">Centos7上安装docker</a></h3></li>
+<li><h3 id="Docker中文网"><a href="#Docker中文网" class="headerlink" title="Docker中文网"></a><a href="http://www.docker.org.cn/index.html" target="_blank" rel="noopener">Docker中文网</a></h3></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <footer>
+        <a href="https://github.com/solumon">
+            <img src="/img/avatar.jpg" alt="骷髅精灵">
+            骷髅精灵
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/21/SpringCloud%E7%AE%80%E8%BF%B0/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SpringCloud简述</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>骷髅精灵 &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

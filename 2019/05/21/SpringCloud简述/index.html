@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>SpringCloud简述 | 骷髅精灵 | 约束自己一周一篇学习博客，学无止境！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="介绍 微服务概念 服务注册与发现 本地负载均衡 服务保护 服务雪崩效应 服务降级 服务熔断 服务隔离   Api网关服务 分布式配置中心 分布式服务跟踪">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringCloud简述">
+<meta property="og:url" content="https://github.com/solumon/2019/05/21/SpringCloud%E7%AE%80%E8%BF%B0/index.html">
+<meta property="og:site_name" content="骷髅精灵">
+<meta property="og:description" content="介绍 微服务概念 服务注册与发现 本地负载均衡 服务保护 服务雪崩效应 服务降级 服务熔断 服务隔离   Api网关服务 分布式配置中心 分布式服务跟踪">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-05-21T01:35:09.000Z">
+<meta property="article:modified_time" content="2020-01-22T01:34:35.624Z">
+<meta property="article:author" content="骷髅精灵">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">骷髅精灵</h5>
+          <a href="mailto:solumon@sina.com" title="solumon@sina.com" class="mail">solumon@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SpringCloud简述</div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SpringCloud简述</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-21T01:35:09.000Z" itemprop="datePublished" class="page-time">
+  2019-05-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#介绍"><span class="post-toc-text">介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#微服务概念"><span class="post-toc-text">微服务概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务注册与发现"><span class="post-toc-text">服务注册与发现</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#本地负载均衡"><span class="post-toc-text">本地负载均衡</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务保护"><span class="post-toc-text">服务保护</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务雪崩效应"><span class="post-toc-text">服务雪崩效应</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务降级"><span class="post-toc-text">服务降级</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务熔断"><span class="post-toc-text">服务熔断</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务隔离"><span class="post-toc-text">服务隔离</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Api网关服务"><span class="post-toc-text">Api网关服务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分布式配置中心"><span class="post-toc-text">分布式配置中心</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分布式服务跟踪"><span class="post-toc-text">分布式服务跟踪</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-SpringCloud简述"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SpringCloud简述</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-21 09:35:09" datetime="2019-05-21T01:35:09.000Z"  itemprop="datePublished">2019-05-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><ul>
+<li><h1 id="微服务概念"><a href="#微服务概念" class="headerlink" title="微服务概念"></a>微服务概念</h1><ul>
+<li><h3 id="服务注册与发现"><a href="#服务注册与发现" class="headerlink" title="服务注册与发现"></a>服务注册与发现</h3></li>
+<li><h2 id="本地负载均衡"><a href="#本地负载均衡" class="headerlink" title="本地负载均衡"></a>本地负载均衡</h2></li>
+<li><h2 id="服务保护"><a href="#服务保护" class="headerlink" title="服务保护"></a>服务保护</h2><ul>
+<li><h3 id="服务雪崩效应"><a href="#服务雪崩效应" class="headerlink" title="服务雪崩效应"></a>服务雪崩效应</h3></li>
+<li><h3 id="服务降级"><a href="#服务降级" class="headerlink" title="服务降级"></a>服务降级</h3></li>
+<li><h3 id="服务熔断"><a href="#服务熔断" class="headerlink" title="服务熔断"></a>服务熔断</h3></li>
+<li><h3 id="服务隔离"><a href="#服务隔离" class="headerlink" title="服务隔离"></a>服务隔离</h3></li>
+</ul>
+</li>
+<li><h2 id="Api网关服务"><a href="#Api网关服务" class="headerlink" title="Api网关服务"></a>Api网关服务</h2></li>
+<li><h2 id="分布式配置中心"><a href="#分布式配置中心" class="headerlink" title="分布式配置中心"></a>分布式配置中心</h2></li>
+<li><h2 id="分布式服务跟踪"><a href="#分布式服务跟踪" class="headerlink" title="分布式服务跟踪"></a>分布式服务跟踪</h2></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <footer>
+        <a href="https://github.com/solumon">
+            <img src="/img/avatar.jpg" alt="骷髅精灵">
+            骷髅精灵
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/21/Docker%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Docker安装与使用</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/21/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B9%8B%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SpringCloud微服务之服务治理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>骷髅精灵 &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
